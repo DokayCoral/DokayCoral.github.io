@@ -93,11 +93,49 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>#最长上升子序列<br>##题目<br>给定一个长度为 N 的数列，求数值严格单调递增的子序列的长度最长是多少。</p>
+<p>输入格式<br>第一行包含整数 N。</p>
+<p>第二行包含 N 个整数，表示完整序列。</p>
+<p>输出格式<br>输出一个整数，表示最大长度。</p>
+<p>数据范围</p>
+<p>1≤N≤1000，</p>
+<p>−109≤数列中的数≤109</p>
+<p>输入样例：<br>    <code>7     3 1 2 1 8 5 6</code></p>
+<p>输出样例：<br>    <code>4</code></p>
+<p>##思路<br>dp[i]表示以a[i]为末位的数列的最长上升子序列长度，其只与其前面的元素相关，故宜使用动态规划的思想。<br>##代码<br>    #include<cstdio><br>    #include<cstring><br>    #include<iostream><br>    #include<algorithm></p>
+<pre><code>using namespace std;
+
+const int N = 1e5;
+
+int n;
+int ans;
+int a[N]; 
+int dp[N];
+
+int main ()&#123;
+    cin &gt;&gt; n;
+    for(int i = 0; i &lt; n; i++) cin &gt;&gt; a[i];
+    
+    for(int i = 0 ; i &lt; n; i++)&#123;
+        dp[i] = 1;
+        for(int j = 0; j &lt; i; j++)&#123;
+            if(a[i]&gt;a[j])&#123;
+                dp[i] = max(dp[i],dp[j]+1);
+            &#125;
+        &#125;
+        ans = max(ans,dp[i]);
+    &#125;
+    
+    cout &lt;&lt; ans;
+    
+    return 0;
+&#125;
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dokaycoral.github.io/2022/09/30/test1/" data-id="cl8oo2t1t0003g8vbdfrr5art" data-title="test1" class="article-share-link">Share</a>
+      <a data-url="https://dokaycoral.github.io/2022/09/30/test1/" data-id="cl8oo6b1100036cvb47lm8fei" data-title="test1" class="article-share-link">Share</a>
       
       
       
@@ -135,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dokaycoral.github.io/2022/09/29/hello2/" data-id="cl8oo2t1r0001g8vbbcrvgf72" data-title="hello2" class="article-share-link">Share</a>
+      <a data-url="https://dokaycoral.github.io/2022/09/29/hello2/" data-id="cl8oo6b0x00016cvbhmv63iyu" data-title="hello2" class="article-share-link">Share</a>
       
       
       
@@ -173,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dokaycoral.github.io/2022/09/29/helloworld/" data-id="cl8oo2t1t0002g8vbah84fzsp" data-title="helloworld" class="article-share-link">Share</a>
+      <a data-url="https://dokaycoral.github.io/2022/09/29/helloworld/" data-id="cl8oo6b0z00026cvbdagqgwg6" data-title="helloworld" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dokaycoral.github.io/2022/09/29/hello-world/" data-id="cl8oo2t1m0000g8vbhm1r2f46" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://dokaycoral.github.io/2022/09/29/hello-world/" data-id="cl8oo6b0s00006cvb7t2h7gor" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
